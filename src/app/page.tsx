@@ -1,9 +1,13 @@
+import { cookies } from 'next/headers'
 import { SignIn } from '../components/SignIn'
 import { Copryght } from '../components/Copryght'
 import { Hero } from '../components/Hero'
 import { Emptymemories } from '../components/EmptyMemories'
+import { Profile } from '@/components/Profile'
 
 export default function Home() {
+  const isAuthenticated = cookies().has('token')
+
   return (
     <main className="grid min-h-screen grid-cols-2">
       {/* left */}
@@ -14,7 +18,7 @@ export default function Home() {
         <div className="absolute bottom-0 right-2 top-0 w-2 bg-stripes" />
 
         {/* Sign in */}
-        <SignIn />
+        {isAuthenticated ? <Profile /> : <SignIn />}
 
         {/* Hero */}
         <Hero />
