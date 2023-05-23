@@ -1,3 +1,4 @@
+import { MediaPicker } from '@/components/MediaPicker'
 import { Camera, ChevronLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -11,6 +12,7 @@ export default function NewMemory() {
         <ChevronLeft className="h-4 w-4" />
         voltar a timeline
       </Link>
+
       <form action="" className="flex flex-1 flex-col gap-2">
         <div className="flex items-center gap-4">
           <label
@@ -34,7 +36,8 @@ export default function NewMemory() {
             Tornar memoria publica
           </label>
         </div>
-        <input type="file" id="media" className="invisible h-0 w-0"></input>
+
+        <MediaPicker />
 
         <textarea
           name="content"
